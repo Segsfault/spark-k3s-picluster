@@ -45,7 +45,7 @@ You should see something like the following:
 The `ADDRESS` in the ingress section is how you can access the UI.  Plug it into a web browser and you should see the spark UI and check to see that it sees all the worker nodes (2 based on the ReplicaSet in the k3s deployment yaml.)  
 
 
-![Spark UI](https://github.com/Segsfault/spark-k3s-picluster/Spark-Pi.png)
+![Spark UI](https://github.com/Segsfault/spark-k3s-picluster/blob/main/Spark-Pi.png)
 
 
 ## Tearing it down
@@ -53,7 +53,7 @@ Just run the `delete.sh` script to spin the cluster down.
 
 
 ### Reference posts
-https://github.com/testdrivenio/spark-kubernetes
-https://towardsdatascience.com/a-journey-into-big-data-with-apache-spark-part-1-5dfcc2bccdd2
-https://dev.to/fransafu/the-first-experience-with-k3s-lightweight-kubernetes-deploy-your-first-app-44ea
-https://github.com/helm/charts/tree/master/stable/spark
+* https://github.com/testdrivenio/spark-kubernetes
+* https://towardsdatascience.com/a-journey-into-big-data-with-apache-spark-part-1-5dfcc2bccdd2
+* https://dev.to/fransafu/the-first-experience-with-k3s-lightweight-kubernetes-deploy-your-first-app-44ea
+* https://github.com/helm/charts/tree/master/stable/spark

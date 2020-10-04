@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: spark-worker-node
+  namespace: spark-cluster
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      component: spark-worker-node
+  template:
+    metadata:
+      labels:
+        component: spark-worker-node
+    spec:
+      containers:
+        - name: spark-worker-node
+          image: 10.10.1.100:5000/myspark
+          command:  ["/opt/spark/bin/spark-class"] 
+          args: ["org.apache.spark.deploy.worker.Worker", "spark://spark-master-node:7077"]
+          ports:
+            - containerPort: 8081
+          resources:
+            requests:
+              cpu: 100m

@@ -1,0 +1,42 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: spark-master-node
+  namespace: spark-cluster
+spec:
+  ports:
+    - name: spark-master-node
+      port: 7077
+      targetPort: 7077
+  selector:
+    component: spark-master-node
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: spark-webui-service
+  namespace: spark-cluster
+spec:
+  ports:
+    - name: tcp
+      port: 8080
+      targetPort: 8080
+  selector:
+    component: spark-master-node 
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: spark-ingress
+  namespace: spark-cluster
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: spark-webui-service
+          servicePort: 8080
